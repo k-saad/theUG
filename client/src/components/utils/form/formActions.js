@@ -10,15 +10,22 @@ export const validate = (element, formData = []) => {
     if(element.validation.email){
         //check if the format is correct
         const valid = /\S+@\S+\.\S+/.test(element.value);
-        const message = `${!valid ? 'Must be a valid email':''}`;
+        const message = `${!valid ? 'Must be a valid email' : ''}`;
         error = !valid ? [valid,message] : error;
     }
 
     if(element.validation.required){
         const valid = element.value.trim() !== '';
-        const message = `${!valid ? 'this field is required':''}`;
+        const message = `${!valid ? 'this field is required' : ''}`;
         error = !valid ? [valid,message] : error;
     }
+
+    if(element.validation.confirm){
+        const valid = element.value.trim() === formData[element.validation.confirm].value;
+        const message = `${!valid ? 'Passwords do not match' : ''}`;
+        error = !valid ? [valid, message] : error;
+    }
+
     return error
 }
 
@@ -47,17 +54,20 @@ export const update = (element, formData, formName) => {
 export const trimData = (formData, formName) => {
     const dataForSubmit = {};
     for(let key in formData){
+        if (key !== 'confirmPassword'){
         dataForSubmit[key] = formData[key].value;
+        }
     }
-    console.log(dataForSubmit);
     return dataForSubmit;
 }
 
 export const checkData = (formData, formName) => {
+    //overall validation
     let formStatus = true;
 
     for(let key in formData){
         formStatus = formData[key].valid && formStatus;
     }
+
     return formStatus;
 }
