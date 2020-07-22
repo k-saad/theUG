@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 class Header extends Component {
     render() {
@@ -13,7 +14,8 @@ class Header extends Component {
                             Search
                         </div>
                         <div className="bottom">  
-                        buttons
+                            <Button color="white">Home</Button>
+                            <Button color="primary">Login</Button>
                         </div>
                     </div>
                 </div>

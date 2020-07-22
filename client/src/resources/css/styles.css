@@ -762,6 +762,7 @@ footer .business_nfo .nfo {
 .user_container {
     display:flex;
     margin-bottom: 50px;
+    margin-top: 50px;
     min-height: 700px;
 }
 

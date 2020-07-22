@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../utils/formfield';
 
+
 import { update, trimData, checkData } from '../utils/form/formActions';
 import { registerUser } from '../../actions/user_actions';
 
@@ -9,7 +10,7 @@ class Register extends Component {
 
     state = {
         formError: false,
-        formErrorMessage:'',
+        formErrorMessage:'Form error, please check the values you inputted',
         formSuccess: false,
         formData: {
             email: {
@@ -101,7 +102,7 @@ class Register extends Component {
                 }
             })
         }else {
-            this.setState({ formError:true})
+            this.setState({ formError:true })
             console.log('shiet');
         }
 
@@ -162,7 +163,6 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
-            
             </div>
         )
     }

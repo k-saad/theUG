@@ -55,7 +55,16 @@ app.get('/', function(req,res){
 
 //verify authentication endpoint
 app.get('/api/users/auth',auth ,(req, res) => {
-  res.status(200).json({success: true, user: req.user});
+  res.status(200).json({
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    cart: req.user.cart,
+    history: req.user.history
+  });
 } )
 
 // registration - saves database document after scrambling password

@@ -29,7 +29,7 @@ let userSchema = new Schema({
     },
     lastname: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         maxlength: 100
     },
