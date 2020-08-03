@@ -8,10 +8,27 @@ export default function (ComposedComponent, reload, isAdmin = null) {
 
     class AuthenticationCheck extends Component {   
         state = {
-            loading: false
+            loading: true
         };
-        componentDidMount(){
 
+        componentDidMount(){
+            console.log('auth at mount');
+            this.props.dispatch(authenticateUser()).then((response) => {
+                const user = this.props.user.userData;
+                console.log('user is',user);
+                if(!user.isAuth){
+                    if(reload){
+                        this.props.history.push('/register_login');
+                    }
+                    this.setState({loading:false})
+                }else{
+                    if(!reload){
+                        this.props.history.push('/dashboard');
+                    }
+                    console.log(user);
+                    this.setState({loading: false})
+                }
+            });
         }
         
         render(){

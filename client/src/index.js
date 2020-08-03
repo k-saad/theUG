@@ -10,9 +10,6 @@ import Routes from './Routes';
 
 import Reducers from './reducers';
 
-import Layout from './components/hoc/layout';
-
-
 import './resources/css/styles.css';  
 
 const Store = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore);
@@ -21,11 +18,9 @@ const Store = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore);
 ReactDOM.render(
   <Provider store={Store(Reducers, 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
-    <Layout>
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
-    </Layout> 
   </Provider>
   ,
   document.getElementById('root')

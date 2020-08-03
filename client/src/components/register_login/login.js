@@ -47,17 +47,12 @@ class Login extends Component {
         }
 
     }
-    componentDidMount(){
-        console.log('state at mount', this.state)
-    }
-
 
     updateForm = (element) => {
         const updateFormData = update(element, this.state.formData,'login');
         this.setState({
             formData: updateFormData
         })
-        console.log(this.state);
     };
 
     submitForm = (event) => {
@@ -74,7 +69,7 @@ class Login extends Component {
                     this.setState({ formErrorMessage: response.payload.message })
                     if(response.payload.success){
                         console.log('response on success',response);
-                        this.props.history.push('/user/dashboard')
+                        this.props.history.push('/dashboard')
                     }else {
                         this.setState({ formError: true })
                     }
