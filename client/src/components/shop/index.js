@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-//import PageTop from '';
-
 import { connect } from 'react-redux';
-import Page_Top from '../utils/page_top';
+
+import Pagetop from '../utils/page_top';
+import { getProducts } from '../../actions/product_actions';
+import { getProductTypes } from '../../actions/product_actions'; 
 
 class Shop extends Component {
-    componentDidMount() {}
+    componentDidMount() {
+        console.log(this.props);
+        this.props.dispatch(getProducts());
+        this.props.dispatch(getProductTypes());
+    }
     render(){
+        const products = this.props.products;
         return (
             <div>
-                <Page_Top name="shop" />
+                <Pagetop name="Browse Shop" />
                 <div className="container">
                     <div className="shop_wrapper">
-                        <div className="left">left</div>
+                        <div className="left">left..</div>
                         <div className="right">right</div>
                     </div>
                 </div>
@@ -23,7 +29,8 @@ class Shop extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products
+        products: state.products,
+        productTypes: state.productTypes
     }
 };
 

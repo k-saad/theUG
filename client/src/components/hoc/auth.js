@@ -12,20 +12,20 @@ export default function (ComposedComponent, reload, isAdmin = null) {
         };
 
         componentDidMount(){
-            console.log('auth at mount');
+            console.log('checking authentication status...');
             this.props.dispatch(authenticateUser()).then((response) => {
                 const user = this.props.user.userData;
-                console.log('user is',user);
                 if(!user.isAuth){
+                    console.log('user is not authenticated', user);
                     if(reload){
                         this.props.history.push('/register_login');
                     }
-                    this.setState({loading:false})
+                    this.setState({loading:false})    
                 }else{
-                    if(!reload){
+                    console.log('user is authenticated', user);
+                    if(reload === null){
                         this.props.history.push('/dashboard');
                     }
-                    console.log(user);
                     this.setState({loading: false})
                 }
             });

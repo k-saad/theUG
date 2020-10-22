@@ -5,10 +5,10 @@ const Footer = () => {
         <footer className="bck_b_dark">
             <div className="container">
                 <div className="left">
-                    Contact Info
+                    Empty
                 </div>
-                <div className="left">
-                    Logo?
+                <div className="right">
+                    Empty
                 </div>
             </div>
         </footer>

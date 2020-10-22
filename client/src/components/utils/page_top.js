@@ -1,6 +1,4 @@
 import React from 'react';
-import { PromiseProvider } from 'mongoose';
-
 const Page_Top = (props) => {
     return (
         <div className="page_top">

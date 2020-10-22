@@ -31,12 +31,14 @@ export const registerUser = (userData) => {
 //authentication
 export const authenticateUser = () => {
     const request = axios.get(`${USER_SERVER}/auth`).then(response => response.data);
+    
     return {
         type: AUTH_USER,
         payload: request
     }
 } 
 
+//logout
 export const logoutUser = () => {
     console.log('trying to logout')
 

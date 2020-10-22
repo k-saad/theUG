@@ -47,7 +47,7 @@ class Login extends Component {
         }
 
     }
-
+        
     updateForm = (element) => {
         const updateFormData = update(element, this.state.formData,'login');
         this.setState({
@@ -100,7 +100,9 @@ class Login extends Component {
                             {`${this.state.formErrorMessage}`}
                         </div>
                     :null}                    
-                    <button onClick={(event)=>{this.submitForm(event) }}>Create an Account</button>           
+                    <button onClick={(event)=>{this.submitForm(event) }}>
+                        Login
+                    </button>           
                 </form>
             </div>
         )

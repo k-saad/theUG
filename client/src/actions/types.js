@@ -5,5 +5,5 @@ export const AUTH_USER = 'auth_user';
 export const LOGOUT_USER = 'logout_user';
 
 //shop
-export const GET_PRODUCTS_BY_ARRIVAL = 'get_products_by_arrival';
-export const GET_PRODUCTS_BY_SALE = 'get_products_by_arrival';
+export const GET_PRODUCTS_BY_SALE = 'get_products_by_sale';
+export const GET_PRODUCT_TYPES = 'get_product_types';
